@@ -1,5 +1,4 @@
 //WAJP to find the smallest letter greater than target.
-//(LEETCODE : Easy)
 
 package com.company;
 
