@@ -1,0 +1,24 @@
+;
+        findMin(a, b);
+    }  
+    static void findMax(int a, int b)
+    {
+        if(a>b)
+        {
+            System.out.println(a);
+        }
+        else
+        {
+            System.out.println(b);
+        }
+    }
+    static void findMin(int a, int b)
+    {
+        if(a<b)
+        {
+            System.out.println(a);
+        }
+        else
+        {
+            System.out.println(b);
+        }
