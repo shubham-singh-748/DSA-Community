@@ -1,0 +1,25 @@
+//Reverse a given string.
+
+package com.company;
+
+import java.util.Scanner;
+
+public class reverseString {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter something random");
+        StringBuilder sb = new StringBuilder(sc.nextLine());
+
+        for (int i = 0; i < sb.length()/2; i++) {
+            int frontInd = i;
+            int backInd = sb.length() - 1 - i;
+
+            char frontChar = sb.charAt(frontInd);
+            char backChar = sb.charAt(backInd);
+
+            sb.setCharAt(frontInd, backChar);
+            sb.setCharAt(backInd, frontChar);
+        }
+        System.out.println(sb);
+    }
+}
