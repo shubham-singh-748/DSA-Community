@@ -1,0 +1,28 @@
+//Practicing programs to understand basic concepts of Strings.
+
+package com.company;
+
+import java.util.Scanner;
+
+public class roughProgramString1 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter something");
+        StringBuilder str = new StringBuilder(sc.nextLine());
+
+        System.out.println(str); //Declaration.
+
+        System.out.println(str.charAt(3)); //Get a character from 3rd index.
+
+        System.out.println(str.insert(4, 'z')); //Insert a character at 4th index.
+
+        str.setCharAt(3, 'p'); //Set a character at 3rd index.
+        System.out.println(str);
+
+        System.out.println(str.delete(5, str.length())); //Delete a character at 5th index.
+
+        System.out.println(str.append('a')); //Append means add "a" character at the end.
+
+        System.out.println(str.length()); //Print the length of the string.
+    }
+}
