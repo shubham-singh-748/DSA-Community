@@ -1,0 +1,34 @@
+//Practice stringbuilder basic functions.
+
+package com.company;
+
+import java.util.Scanner;
+
+public class stringBilder {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        //String str1 = in.nextLine();
+        String str = "h";
+        str = str + "e";
+        str = str + "l";
+        str = str + "l";
+        str = str + "o";
+        System.out.println(str);
+
+        StringBuilder pqr = new StringBuilder("Shubham");
+        System.out.println(pqr.charAt(2));
+
+        pqr.setCharAt(4, 'H');
+        System.out.println(pqr);
+
+        pqr.insert(2, 'h');
+        System.out.println(pqr);
+
+        pqr.delete(6, pqr.length());
+        System.out.println(pqr);
+
+        pqr.append('A');
+        System.out.println(pqr);
+        System.out.println(pqr.length());
+    }
+}
