@@ -1,0 +1,38 @@
+//Write a java program to display sand clock pattern.
+
+import java.util.Scanner;
+
+public class sandClockPattern {
+    public static void main(String[] args) {
+        try (Scanner scn = new Scanner(System.in)) {
+            System.out.println("Enter the number of rows");
+            int rows = scn.nextInt();
+            int n = (2*rows)-1;
+
+            for(int i = 1; i<=rows; i++)
+            {
+                int k = 0;
+            for(int j = 1; j<=n; j++)
+             {
+                 if(j <= (2*rows)/2)
+                 {
+                     k++;
+                 }
+                 else
+                 {
+                     k--;
+                 }
+                 if(j<=i || j>=(2*rows)-i)
+                 {
+                    System.out.print(k+"\t");
+                 }
+                 else
+                 {
+                    System.out.print("\t");
+                 }
+             }
+             System.out.println();
+    }
+        }
+    }
+}
