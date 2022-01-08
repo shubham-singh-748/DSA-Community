@@ -1,0 +1,72 @@
+//WAJP to diagonally traverse the upper half of the matrix
+//and print the contents.
+
+import java.util.Scanner;
+
+public class diagonalTraversal{
+    public static void main(String[] args) {
+        try (Scanner scn = new Scanner(System.in)) {
+            System.out.println("Enter values");
+            int rows = scn.nextInt();
+            int col = scn.nextInt();
+            System.out.println();
+
+            int[][] arr = new int[rows][col];
+            for(int i=0; i<arr.length; i++)
+            {
+                for(int j=0; j<arr[i].length; j++)
+                {
+                    arr[i][j] = scn.nextInt();
+                }
+            }
+            System.out.println();
+                
+            int Top = 0;
+            int Bottom = rows - 1;
+            int left = 0;
+            int right = col - 1;
+
+            while(left<=right && Top<=Bottom)
+            {
+                int Dir = 0;
+                if(Dir == 0)
+                {
+                    for(int k=left; k<=right; k++)
+                    {
+                        System.out.print(arr[Top][k]+" ");
+                        Top++;
+                    }
+                    System.out.println();
+                }
+                else if(Dir == 1)
+                {
+                    for(int k=Top; k<=Bottom; k++)
+                    {
+                        System.out.print(arr[k][right]+ " ");
+                        right--;
+                    }
+                    System.out.println();
+                }
+                else if(Dir == 2)
+                {
+                    for(int k=right; k>=left; k--)
+                    {
+                        System.out.print(arr[Bottom][k]+" ");
+                        Bottom--;
+                    }
+                    System.out.println();
+                }
+                else if(Dir == 3)
+                {
+                    for(int k=Bottom; k>=Top; k--)
+                    {
+                        System.out.print(arr[k][left]+" ");
+                        left++;
+                    }
+                    System.out.println();
+                }
+                Dir = (Dir+1)%4;
+            }
+        }
+    }
+}
