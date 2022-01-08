@@ -1,0 +1,63 @@
+// Write a java program to print the contents of 2D array in form of a spiral.
+
+import java.util.Scanner;
+
+public class spiralTraversal {
+    public static void main(String[] args) {
+        Scanner scn = new Scanner(System.in);
+        System.out.println("Enter values");
+        int rows = scn.nextInt();
+        int col = scn.nextInt();
+        System.out.println();
+
+        int[][] arr = new int[rows][col];
+        for(int i=0; i<arr.length; i++)
+        {
+            for(int j=0; j<arr[i].length; j++)
+            {
+                arr[i][j] = scn.nextInt();
+            }
+        }
+        System.out.println();
+
+        int minRows = 0;
+        int minCol = 0;
+        int maxRows = arr.length - 1;
+        int maxCol = arr[0].length - 1;
+        int count = 0;
+        int totalElements = rows * col;
+
+        while (count < totalElements) 
+        {
+        //For Left side
+        for(int i=minRows, j=minCol; i<=maxRows && count < totalElements; i++)
+        {
+            System.out.println(arr[i][j]);
+            count++;
+        }
+        minCol++;
+        //For Bottom side
+        for(int i=maxRows, j = minCol; j<=maxCol && count < totalElements; j++)
+        {
+            System.out.println(arr[i][j]);
+            count++;
+        }
+        maxRows--;
+        //For Right side
+        for(int i=maxRows, j=maxCol; i>= minRows && count < totalElements; i--)
+        {
+            System.out.println(arr[i][j]);
+            count++;
+        }
+        maxCol--;
+        //For Top side
+        for(int i=minRows, j=maxCol; j>=minRows && count < totalElements; j--)
+        {
+            System.out.println(arr[i][j]);
+            count++;
+        }
+        minRows++;
+
+        }
+    }
+}
