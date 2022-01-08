@@ -1,0 +1,148 @@
+//WAJP to rotate the shell of matrix by R rotation and display the
+//matrix using rows and columns.
+
+import java.util.Scanner;
+
+public class ShellRotate {
+    public static void main(String[] args) {
+        try (Scanner scn = new Scanner(System.in)) {
+            System.out.println("Enter values");
+            int rows = scn.nextInt();
+            int col = scn.nextInt();
+            System.out.println();
+
+            int[][] arr = new int[rows][col];
+            for(int i=0; i<arr.length; i++)
+            {
+                for(int j=0; j<arr[i].length; j++)
+                {
+                    arr[i][j] = scn.nextInt();
+                }
+            }
+            System.out.println();
+
+            int shell = scn.nextInt();
+            int rotate = scn.nextInt();
+
+            rotateShell(arr, shell, rotate);
+            display(arr);
+        }
+    }
+
+    private static void display(int[][] arr) 
+    {
+        for(int i=0; i<arr.length; i++)
+        {
+            for(int j=0; j<arr[i].length; j++)
+            {
+                System.out.print(arr[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+
+    static void rotateShell(int[][] arr, int shell, int rotate) 
+    {
+        int[] oneDimensional = filloneDimensionalFromShell(arr, shell);
+        rotate(oneDimensional, rotate);
+        fillShellFromOneDimensional(arr, shell, oneDimensional);
+    }
+
+    static int[] filloneDimensionalFromShell(int[][] arr, int shell) 
+    {
+        int minRows = shell - 1;
+        int minCol = shell - 1;
+        int maxRows = arr.length - shell;
+        int maxCol = arr[0].length - shell;
+        int size = 2 * (maxRows - minRows + maxCol - minCol);
+
+        int[] oneDimensional = new int[size];
+
+        //For left wall
+        int ind = 0;
+        for(int i=minRows, j = minCol; i<=maxRows; i++)
+        {
+            oneDimensional[ind] = arr[i][j];
+            ind++;
+        }
+        //For bottom wall
+        for(int i=maxRows, j=minCol; j<=maxCol; j++)
+        {
+            oneDimensional[ind] = arr[i][j];
+            ind++;
+        }
+        //For right wall
+        for(int i=maxRows - 1, j=maxCol; i>=minRows; i--)
+        {
+            oneDimensional[ind] = arr[i][j];
+            ind++;
+        }
+        //For top wall
+        for(int i=minRows, j=maxCol-1; j>=minCol + 1; j--)
+        {
+            oneDimensional[ind] = arr[i][j];
+            ind++;
+        }
+        return oneDimensional;
+    }
+
+    private static void fillShellFromOneDimensional(int[][] arr, int shell, int[] oneDimensional) 
+    {
+        int minRows = shell - 1;
+        int minCol = shell - 1;
+        int maxRows = arr.length - shell;
+        int maxCol = arr[0].length - shell;
+
+        //For left wall
+        int ind = 0;
+        for(int i=minRows, j = minCol; i<=maxRows; i++)
+        {
+            arr[i][j] = oneDimensional[ind];
+            ind++;
+        }
+        //For bottom wall
+        for(int i=maxRows, j=minCol; j<=maxCol; j++)
+        {
+            arr[i][j] = oneDimensional[ind];
+            ind++;
+        }
+        //For right wall
+        for(int i=maxRows - 1, j=maxCol; i>=minRows; i--)
+        {
+            arr[i][j] = oneDimensional[ind];
+            ind++;
+        }
+        //For top wall
+        for(int i=minRows, j=maxCol-1; j>=minCol + 1; j--)
+        {
+            arr[i][j] = oneDimensional[ind];
+            ind++;
+        }
+    }
+
+    private static void rotate(int[] oneDimensional, int rotate) 
+    {
+        rotate = rotate % oneDimensional.length;
+        if(rotate < 0)
+        {
+            rotate = rotate + oneDimensional.length;
+        }
+
+        reverse(oneDimensional, 0, oneDimensional.length - rotate - 1);
+        reverse(oneDimensional, oneDimensional.length - rotate, oneDimensional.length - 1);
+        reverse(oneDimensional, 0, oneDimensional.length - 1);
+    }
+
+    static void reverse(int[] oneDimensional, int leftInd, int rightInd) 
+    {
+        while (leftInd < rightInd) 
+        {
+            int temp = oneDimensional[leftInd];
+            oneDimensional[leftInd] = oneDimensional[rightInd];
+            oneDimensional[rightInd] = temp;
+            
+            leftInd++;
+            rightInd--;
+        }
+    }
+}
