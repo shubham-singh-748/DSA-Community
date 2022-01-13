@@ -1,0 +1,31 @@
+//Write a program to calculate "x" raised to the power "n".
+
+import java.util.Scanner;
+
+public class PowerLogarithmic {
+    public static void main(String[] args) {
+        try (Scanner scn = new Scanner(System.in)) {
+            System.out.println("Enter values");
+            int x = scn.nextInt();
+            int n = scn.nextInt();
+            int ans = power(x, n);
+            
+            System.out.println(ans);
+        }
+    }
+    public static int power(int x, int n)
+    {
+        if(n == 0)
+        {
+            return 1;
+        }
+
+        int xndividedbytwo = power(x, n / 2);
+        int xn = xndividedbytwo * xndividedbytwo;
+        if(n%2 == 1)
+        {
+            xn = xn * x;
+        }
+        return xn;
+    }
+}
