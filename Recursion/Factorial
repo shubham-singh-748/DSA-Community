@@ -1,0 +1,28 @@
+/* 1. You are given a number n.
+
+2. You are required to calculate the factorial of the number. 
+Don't change the signature of factorial function.
+ */
+
+import java.util.*;
+
+public class FactorailRecurse {
+    public static void main(String[] args) {
+        try (Scanner scn = new Scanner(System.in)) {
+            System.out.println("Enter values");
+            int n = scn.nextInt();
+            int res = PrintFactorial(n);
+            System.out.println(res);
+        }
+    }
+    public static int PrintFactorial(int n)
+    {
+        if(n == 1)
+        {
+            return 1;
+        }
+        int temp = PrintFactorial(n-1);
+        n = temp * n;
+        return n;
+    }
+}
