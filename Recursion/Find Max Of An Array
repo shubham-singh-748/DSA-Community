@@ -1,0 +1,43 @@
+/* 
+1. You are given a number n, representing the count of elements.
+2. You are given n numbers.
+3. You are required to find the maximum of input. 
+4. For the purpose complete the body of maxOfArray function. Don't change the signature.
+*/
+
+import java.util.Scanner;
+
+public class FindMaxArray {
+    public static void main(String[] args) {
+        try (Scanner scn = new Scanner(System.in)) {
+            System.out.println("Enter values");
+            int n = scn.nextInt();
+
+            System.out.println("Enter inputs of an array");
+            int[] arr = new int[n];
+            for(int i=0; i<arr.length; i++)
+            {
+                arr[i] = scn.nextInt();
+            }
+            int res = max(arr, 0);
+            System.out.println(res);
+        }
+    }
+    public static int max(int[] arr, int index)
+    {
+        if(index == arr.length)
+        {
+            return 1;
+        }
+
+        int temp = max(arr, index + 1);
+        if(temp > arr[index])
+        {
+            return temp;
+        }
+        else
+        {
+            return arr[index];
+        }
+    }
+}
