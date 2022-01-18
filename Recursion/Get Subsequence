@@ -1,0 +1,46 @@
+/* 
+1. You are given a string str.
+2. Complete the body of getSS function - without changing 
+signature - to calculate all subsequences of str.
+
+Use sample input and output to take idea about subsequences.
+*/
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class GetSubsequence {
+    public static void main(String[] args) {
+        try (Scanner scn = new Scanner(System.in)) {
+            System.out.println("Enter somehing here");
+            String str = scn.nextLine();
+            ArrayList<String> res = gss(str);
+            System.out.println(res);
+        }
+    }
+    public static ArrayList<String> gss(String str)
+    {
+        if(str.length() == 0)
+        {
+            ArrayList<String> baseRes = new ArrayList<>();
+            baseRes.add("");
+            return baseRes;
+        }
+
+        char ch = str.charAt(0);
+        String returnOfRes = str.substring(1);
+
+        ArrayList<String> RecRes = gss(returnOfRes);
+        ArrayList<String> myRes = new ArrayList<>();
+
+        for(String RecStr: RecRes)
+        {
+            myRes.add("" + RecStr);
+        }
+
+        for(String RecStr: RecRes)
+        {
+            myRes.add(ch + RecStr);
+        }
+        return myRes;
+    }
+}
