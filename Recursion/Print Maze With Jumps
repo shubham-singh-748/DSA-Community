@@ -1,0 +1,62 @@
+/* 
+1. You are given a number n and a number m representing number 
+of rows and columns in a maze.
+
+2. You are standing in the top-left corner and have to reach 
+the bottom-right corner. 
+
+3. In a single move you are allowed to jump 1 or more 
+steps horizontally (as h1, h2, .. ), or 1 or more steps 
+vertically (as v1, v2, ..) or 1 or more steps diagonally (as d1, d2, ..). 
+
+4. Complete the body of printMazePath function - without 
+changing signature - to print the list of all paths that 
+can be used to move from top-left to bottom-right.
+
+Use sample input and output to take idea about output.
+ */
+
+import java.io.*;
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) throws Exception {
+        Scanner scn = new Scanner(System.in);
+        int rows = scn.nextInt();
+        int col = scn.nextInt();
+        printMazePaths(1, 1, rows, col, "");
+    }
+
+    // sr - source row
+    // sc - source column
+    // dr - destination row
+    // dc - destination column
+    public static void printMazePaths(int sr, int sc, int dr, int dc, String psf) {
+
+        if(sr == dr && sc == dc)
+        {
+            System.out.println(psf);
+            return;
+        }
+
+
+        //For Horizontal Traversal.....
+        for(int moveSize = 1; moveSize <= dc - sc; moveSize++)
+        {
+            printMazePaths(sr, sc + moveSize, dr, dc, psf + "h" + moveSize);
+        }
+
+        //For Column Traversal.....
+        for(int moveSize = 1; moveSize <= dr - sr; moveSize++)
+        {
+            printMazePaths(sr + moveSize, sc, dr, dc, psf + "v" + moveSize);
+        }
+
+        //For Diagonally Traversal.....
+        for(int moveSize = 1; moveSize <= dc - sc && moveSize <= dr - sr; moveSize++)
+        {
+            printMazePaths(sr + moveSize, sc + moveSize, dr, dc, psf + "d" + moveSize);
+        }   
+    }
+}
