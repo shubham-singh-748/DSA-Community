@@ -1,6 +1,6 @@
 /* 
-1. You are given a string str. The string str will contains numbers only, 
-where each number stands for a key pressed on a mobile phone.
+1. You are given a string str. The string str will contains numbers 
+only, where each number stands for a key pressed on a mobile phone.
 
 2. The following list is the key to characters map :
 
@@ -15,42 +15,51 @@ where each number stands for a key pressed on a mobile phone.
     8 -> vwx
     9 -> yz
 
-3. Complete the body of getKPC function - without changing signature - to get the list of all words that could be produced by the keys in str.
+3. Complete the body of getKPC function - without changing signature - to 
+get the list of all words that could be produced by the keys in str.
 */
 
-import java.io.*;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Scanner;
 
-public class Main {
-
-    public static void main(String[] args) throws Exception {
-        Scanner scn = new Scanner(System.in);
-        String str = scn.nextLine();
-        ArrayList<String> res = getKPC(str);
-        System.out.println(res);
+public class GetKPC {
+    public static void main(String[] args) {
+        try (Scanner scn = new Scanner(System.in)) {
+            System.out.println("Enter key");
+            String str = scn.nextLine();
+            ArrayList<String> res = PrintKPC(str);
+            System.out.println(res);
+        }
     }
-    static String[] codes = {".;","abc", "def", "ghi", "jkl", "mno", "pqrs", "tu", "vwx", "yz"};
-    public static ArrayList<String> getKPC(String str) {
+
+    static String[] codes = {".;", "abc", "def", "ghi", "jkl", "mno",
+     "pqrs", "tu", "vwx", "yz"};
+    public static ArrayList<String> PrintKPC(String str)
+    {
         if(str.length() == 0)
         {
             ArrayList<String> BaseRes = new ArrayList<>();
             BaseRes.add("");
             return BaseRes;
-
         }
+        //Taking input from 1st character.
+        char FirstChar = str.charAt(0);
 
-        char ch = str.charAt(0);
-        String restOfRes = str.substring(1);
-        ArrayList<String> RecursiveRes = getKPC(restOfRes);
+        //Taking characters after 0th position.
+        ArrayList<String> SecondChar = PrintKPC(str.substring(1)); 
 
+        //Declaring an ArrayList String.
         ArrayList<String> myRes = new ArrayList<>();
-        String chcode = codes[ch - '0'];
-        for(int i=0; i<chcode.length(); i++)
+
+        //Taking 1st numeric letter(6).
+        String FirstIndex = codes[FirstChar - '0'];
+        for(int i=0; i<FirstIndex.length(); i++)
         {
-            char codeforces = chcode.charAt(i);
-            for(String recStr: RecursiveRes)
+            //Printing character combinations of 6(p,q,r,s).
+            char PrintAllCombination = FirstIndex.charAt(i); 
+            for(String res: SecondChar)
             {
-                myRes.add(codeforces + recStr);
+                myRes.add(res + PrintAllCombination); //Adding 6 of combinatios in 78.
             }
         }
         return myRes;
