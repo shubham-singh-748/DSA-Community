@@ -1,46 +1,55 @@
 /* 
 1. You are given a string str.
+
 2. Complete the body of getSS function - without changing 
 signature - to calculate all subsequences of str.
 
 Use sample input and output to take idea about subsequences.
 */
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class GetSubsequence {
+public class GetSubsequence2 {
     public static void main(String[] args) {
         try (Scanner scn = new Scanner(System.in)) {
-            System.out.println("Enter somehing here");
+            System.out.println("Enter string");
             String str = scn.nextLine();
-            ArrayList<String> res = gss(str);
-            System.out.println(res);
+            ArrayList<String> ans = PrintGetSubsequence(str);
+            System.out.println(ans);
         }
     }
-    public static ArrayList<String> gss(String str)
+    public static ArrayList<String> PrintGetSubsequence(String str)
     {
         if(str.length() == 0)
         {
-            ArrayList<String> baseRes = new ArrayList<>();
-            baseRes.add("");
-            return baseRes;
+            ArrayList<String> BaseRes = new ArrayList<>();
+            BaseRes.add("");
+            return BaseRes;
         }
 
-        char ch = str.charAt(0);
-        String returnOfRes = str.substring(1);
+        char FirstChar = str.charAt(0); //Taking "a" character.
+        String SecondChar = str.substring(1); //Taking "bc" characters. 
+        ArrayList<String> res = PrintGetSubsequence(SecondChar); //Run recursive() for "bc".
 
-        ArrayList<String> RecRes = gss(returnOfRes);
-        ArrayList<String> myRes = new ArrayList<>();
+        //We can also write like this....
+        //ArrayList<String> SecondChar = PrintGetSubsequence(str.substring(1)).
+        //But the upper looks is little bit more attractive.
 
-        for(String RecStr: RecRes)
+        ArrayList<String> myRes = new ArrayList<>(); //Declaring an ArrayList string.
+
+
+        for(String ForBC: res)
         {
-            myRes.add("" + RecStr);
+            myRes.add(ForBC + ""); //Printing subsequence of "bc".
         }
 
-        for(String RecStr: RecRes)
+        for(String ForA: res)
         {
-            myRes.add(ch + RecStr);
+            myRes.add(FirstChar + ForA); //Adding "a" character in "bc" characters.
         }
+
         return myRes;
     }
 }
+
