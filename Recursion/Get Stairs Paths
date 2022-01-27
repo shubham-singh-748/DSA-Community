@@ -1,11 +1,11 @@
 /* 
 1. You are given a number n representing number of stairs in a staircase.
 
-2. You are standing at the bottom of staircase. 
-You are allowed to climb 1 step, 2 steps or 3 steps in one move.
+2. You are standing at the bottom of staircase. You are allowed to 
+climb 1 step, 2 steps or 3 steps in one move.
 
-3. Complete the body of getStairPaths function - without changing signature - 
-to get the list of all paths that can be used to climb the staircase up.
+3. Complete the body of getStairPaths function - without changing 
+signature - to get the list of all paths that can be used to climb the staircase up.
 
 Use sample input and output to take idea about output.
 */
@@ -13,17 +13,16 @@ Use sample input and output to take idea about output.
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class StairCaseRecursion {
+public class GetStairsPath {
     public static void main(String[] args) {
         try (Scanner scn = new Scanner(System.in)) {
-            int n = scn.nextInt();
-            System.out.println("Enter something here");
-            ArrayList<String> Stairs = getStairPaths(n);
-            System.out.println(Stairs);
+        System.out.println("Enter number of stairs");
+        int n = scn.nextInt();
+        ArrayList<String> res = PrintStairsPath(n);
+        System.out.println(res);
         }
     }
-
-    public static ArrayList<String> getStairPaths(int n)
+    public static ArrayList<String> PrintStairsPath(int n)
     {
         if(n == 0)
         {
@@ -36,24 +35,38 @@ public class StairCaseRecursion {
             ArrayList<String> BaseRes = new ArrayList<>();
             return BaseRes;
         }
-        ArrayList<String> path1 = getStairPaths(n-1);
-        ArrayList<String> path2 = getStairPaths(n-2);
-        ArrayList<String> path3 = getStairPaths(n-3);
 
+        //Run for n-1 position.
+        ArrayList<String> RunForSecond = PrintStairsPath(n-1);
+
+        //Run for n-2 position.
+        ArrayList<String> RunforThird = PrintStairsPath(n-2);
+
+        //Run for n-3 position.
+        ArrayList<String> RunForFourth = PrintStairsPath(n-3);
+
+        //Declaring an empty arraylist string.
         ArrayList<String> myRes = new ArrayList<>();
 
-        for(String path: path1)
+        //Getting result of first position.
+        for(String FirstRes: RunForSecond)
         {
-            myRes.add(1 + path);
+            myRes.add(FirstRes + 1);
         }
-        for(String path: path2)
+
+        //Getting result of second position.
+        for(String SecondRes: RunforThird)
         {
-            myRes.add(2 + path);
+            myRes.add(SecondRes + 2);
         }
-        for(String path: path3)
+
+        //Getting result of third position
+        for(String ThirdRes: RunForFourth)
         {
-            myRes.add(3 + path);
+            myRes.add(ThirdRes + 3);
         }
+
         return myRes;
     }
 }
+
