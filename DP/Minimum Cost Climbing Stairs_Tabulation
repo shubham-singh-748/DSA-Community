@@ -6,16 +6,17 @@ class Solution {
 public:
     int Print_MCS(int n, vi& cost, vi& dp)
     {
-        if(n <= 1)
-            return dp[n] = cost[n];
-        
-        if(dp[n] != 0)
+        for(int i=0; i<=n; i++)
         {
-            return dp[n];
+            if(i <= 1)
+            {
+                dp[i] = cost[i];
+                continue;
+            }
+            
+            dp[i] = min(dp[i-1], dp[i-2]) + cost[i];
         }
-        
-        return dp[n]  = min(Print_MCS(n-1, cost, dp), Print_MCS(n-2, cost, dp)) + cost[n];
-        
+        return dp[n];
     }
         
     int minCostClimbingStairs(vector<int>& cost)
