@@ -1,0 +1,30 @@
+//Tabulation Code:-
+
+#define vi vector<int>
+
+class Solution {
+public:
+    int Print_MCS(int n, vi& cost, vi& dp)
+    {
+        if(n <= 1)
+            return dp[n] = cost[n];
+        
+        if(dp[n] != 0)
+        {
+            return dp[n];
+        }
+        
+        return dp[n]  = min(Print_MCS(n-1, cost, dp), Print_MCS(n-2, cost, dp)) + cost[n];
+        
+    }
+        
+    int minCostClimbingStairs(vector<int>& cost)
+    {
+        int n = cost.size();
+        cost.push_back(0);
+        
+        vi dp(n+1, 0);
+        int res = Print_MCS(n, cost, dp);
+        return res;
+    }
+};
