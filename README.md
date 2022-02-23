@@ -1,3 +1,3 @@
 # It's Personal!
-Why have you come here, it is not worth anything to you, 
+Why have you came here, it is not worth anything to you, 
 go and focus on your work, study and become an IAS....
