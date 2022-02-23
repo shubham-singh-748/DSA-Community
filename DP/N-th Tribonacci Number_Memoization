@@ -1,0 +1,32 @@
+//For Memoization Code.
+
+#include<iostream>
+#include<vector>
+
+#define vi vector<int>
+#define vii vector<vi>
+
+using namespace std;
+
+//For Memoization Code.
+int Print_Tribonacci(int n, vi &dp)
+{
+    if(n <= 2)
+    {
+        return dp[n] = n<=1 ? n:1;
+    }
+
+    dp[n] = Print_Tribonacci(n-1, dp) + Print_Tribonacci(n-2, dp) + Print_Tribonacci(n-3, dp);
+    return dp[n];
+}
+
+int main()
+{
+    int n;
+    cout << "Enter value" << endl;
+    cin >> n;
+    
+    vi dp(n+1, 0);
+    int res = Print_Tribonacci(n, dp);
+    cout << res << endl;
+}
