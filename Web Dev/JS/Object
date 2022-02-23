@@ -1,0 +1,41 @@
+//Object -> is a group of key: value pair.
+let CaptainAmerica = 
+{
+    name: "Steve",
+    LastName: "Rogers",
+    address:
+    {
+        City: "Brooklyn",
+        State: "New York",
+
+    },
+    age: 35,
+    isAvenger: true,
+    Movies: ["First Avenger", "Winter Soldier", "Civil War"],
+    sayHi: function()
+    {
+        console.log("Captain say's Hi");
+    }
+}
+
+// console.log(CaptainAmerica.name);
+// console.log(CaptainAmerica.LastName);
+console.log(CaptainAmerica.age);
+// console.log(CaptainAmerica.Movies);
+// CaptainAmerica.sayHi();
+
+// console.log("Captain America" + CaptainAmerica);
+// CaptainAmerica.age = 36;
+// CaptainAmerica.isAvenger = false;
+// CaptainAmerica.friends = ["Tony Stark", "Bucky", "Falcon"];
+// console.log();
+
+// for(let key in CaptainAmerica)
+// {
+//     console.log(key+" : " + CaptainAmerica[key]);
+// }
+
+let propKey = "age";
+console.log(CaptainAmerica.age);
+console.log(CaptainAmerica[propKey]);
+console.log(CaptainAmerica["age"]);
