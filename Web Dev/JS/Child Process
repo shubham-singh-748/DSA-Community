@@ -1,0 +1,4 @@
+let cp = require("child_process");
+console.log("Trying to open pepcoding browser");
+cp.execSync("google-chrome https:\\www.pepcoding.com");
+console.log("opened pepcoding website");
