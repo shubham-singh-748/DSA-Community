@@ -1,0 +1,40 @@
+let inputArr = process.argv.slice(2);
+console.log(inputArr);
+// node main.js tree "DirectoryPath"
+// node main.js organize "DirectoryPath"
+// node main.js help
+
+let command = inputArr[0];
+switch(command)
+{
+    case "tree":
+        treefn(inputArr[1]);
+        break;
+    case "organize":
+        organize(inputArr[1]);
+        break;
+    case "help":
+        helpfn();
+        break;
+    default:
+        console.log("Please Input Right Command");
+        break; 
+}
+
+function treefn(DirPath)
+{
+    console.log("Tree command implemeted for " + DirPath);
+}
+function organize(DirPath)
+{
+    console.log("Organize command implemnt for " + DirPath);
+}
+function helpfn()
+{
+    console.log(`List of all commands: 
+                        node main.js tree "DirectoryPath"
+                        node main.js organize "DirectoryPath"
+                        node main.js help
+                        `);
+    
+}
