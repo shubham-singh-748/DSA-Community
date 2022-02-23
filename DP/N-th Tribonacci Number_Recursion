@@ -1,0 +1,30 @@
+//For Recursive Code.
+
+#include<iostream>
+#include<vector>
+
+#define vi vector<int>
+#define vii vector<vi>
+
+using namespace std;
+
+int Print_Tribonacci(int n)
+{
+    if(n <= 2)
+    {
+        return n = n<=1 ? n:1;
+    }
+
+    int ans = Print_Tribonacci(n-1) + Print_Tribonacci(n-2) + Print_Tribonacci(n-3);
+    return ans;
+}
+
+int main()
+{
+    int n;
+    cout << "Enter value" << endl;
+    cin >> n;
+
+    int res = Print_Tribonacci(n);
+    cout << res << endl;
+}
