@@ -1,0 +1,15 @@
+//Function Definition
+function sayHi(Shubham)
+{
+    // console.log("Hello Everyone");
+    // console.log("I received my name " + Shubham);
+    let rVal = Math.random() > 0.5?true: "less than 0.5";
+    return rVal;
+}
+
+//Function Call
+// sayHi(5);
+// sayHi("Hello Everone");
+
+let rVal = sayHi([1, 2, 3, 4, 5, 6]);
+console.log(rVal + " rval");
