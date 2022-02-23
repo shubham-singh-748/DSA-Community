@@ -39,3 +39,172 @@ let propKey = "age";
 console.log(CaptainAmerica.age);
 console.log(CaptainAmerica[propKey]);
 console.log(CaptainAmerica["age"]);
+
+//Basic Introduction About String In JavaScript. 
+
+let singleQuotes = 'single quotes in String';
+let doubleQuotes = "double quotes in String";
+
+console.log(singleQuotes);
+console.log(doubleQuotes);
+
+let char = singleQuotes.charAt(4);
+let ascii = singleQuotes.charCodeAt(4);
+let subStr = singleQuotes.substring(2, 8);
+
+console.log(subStr);
+console.log(char);
+console.log(ascii);
+
+let arrStr = singleQuotes.split(" ");
+console.log(arrStr);
+let Str = arrStr.join("s");
+console.log(Str);
+
+//os feature
+let os = require("os");
+console.log(os.arch());
+
+console.log(os.platform());
+
+console.log(os.networkInterfaces());
+
+console.log(os.cpus());
+
+let chalk = require("chalk");
+let figlet = require('figlet');
+// console.log(chalk.bold('Hello world!'));
+// console.log(chalk.blue('Hello World!'));
+// console.log(chalk.red('Hello World!'));
+// console.log(chalk.bgBlueBright('Hello World!'));
+// console.log(chalk.underline('Hello World!'));
+console.log(chalk.red(figlet.textSync("# PEPCODERS")));
+
+/Print "Hello JS".
+// console.log("Hello JS");
+
+// //Declare Variable
+// let a;
+
+// //Undefined Variable
+// a = 10;
+// a = 10.1;
+// a = "Hello I am a String";
+// a = 'Hello I am also a String';
+// a = true;
+// console.log("variable contains " + a);
+// a = null;
+
+//Maka a program on loop
+// let n = 10;
+// for(let i=1; i<=n; i++)
+// {
+//     console.log("Number is "+i);
+// }
+
+//Check a number is prime or not
+let n = 23;
+let flag = true;
+for(let div = 2; div<n; div++)
+{
+    if(div%n==0)
+    {
+        flag = false;
+        break;
+    }
+}
+
+if(flag == true)
+{
+    console.log(n+" is the prime number");
+}
+else
+{
+    console.log(n+" is not a prime number");
+}
+
+//Simple programs in JavaScript.
+
+let hi = "Hello World";
+console.log(hi);
+
+let a = 467, b = 51;
+console.log(a+" * "+b+" = "+a*b);
+
+console.log(a/b);
+console.log(a-b);
+console.log(a+b);
+
+//Function Definition
+function sayHi(Shubham)
+{
+    // console.log("Hello Everyone");
+    // console.log("I received my name " + Shubham);
+    let rVal = Math.random() > 0.5?true: "less than 0.5";
+    return rVal;
+}
+
+//Function Call
+// sayHi(5);
+// sayHi("Hello Everone");
+
+let rVal = sayHi([1, 2, 3, 4, 5, 6]);
+console.log(rVal + " rval");
+
+let fs = require("fs");
+// let buffer = fs.readFileSync("abc.js");
+// console.log("bin data" +  buffer);
+
+//fs.openSync("abc.txt", "w");
+// fs.writeFileSync("abc.txt", "Hum aaj khush hai");
+
+// //update
+// fs.appendFile("abc.txt", "Humare saath shri raghunath to kis baat ki chinta");
+
+let content = fs.readdirSync("My_Directory");
+console.log(content);
+
+for(let i=0; i<content.length; i++)
+{
+    console.log("file" + content[i] + "is removed");
+    fs.unlinkSync("My_Directory/" + content[i]);
+}
+fs.rmddirSync("My_Directory");
+
+let cp = require("child_process");
+console.log("Trying to open pepcoding browser");
+cp.execSync("google-chrome https:\\www.pepcoding.com");
+console.log("opened pepcoding website");
+
+//Array Declare
+//let arr=[];
+let arr = [1, 2, 3, 4, 5];
+console.log(arr);
+console.log(arr.length);
+
+let i=0;
+while (i < arr.length) 
+{
+    console.log("Element at index " + i + " is " + arr[i]);
+    i++;    
+}
+
+let a = 20;
+console.log(a);
+
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**"
+            ],
+            "defines": [],
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "gnu17",
+            "cppStandard": "gnu++14",
+            "intelliSenseMode": "linux-gcc-x64"
+        }
+    ],
+    "version": 4
+}
