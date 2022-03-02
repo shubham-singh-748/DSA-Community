@@ -1,0 +1,80 @@
+#include <iostream>
+
+using namespace std;
+
+void Print_MergeSort(int arr[], int arr2[], int n, int m)
+{
+    int i=0;
+    int j=0;
+    int k=0;
+
+    // Declaring an another array for
+    // Kth eleement which is the sum
+    // of 1st array and 2nd array.
+    int res[n+m];
+
+    while(i < n && j < m)
+    {
+        // Checking if ith element of 1st Array is
+        // smaller than jth element of 2nd Array,
+        // if it is, then store it to new Array.
+        if(arr[i] < arr2[j])
+        {
+            res[k] = arr[i];
+            i++;
+            k++;
+        }
+
+        else
+        {
+            res[k] = arr2[j];
+            j++;
+            k++;
+        }
+    }
+
+    // If some element remains after
+    // iteration then just simply write that.
+    while(i < n)
+    {
+        res[k] = arr[i];
+        k++;
+        i++;
+    }
+
+    // If some elements remains after
+    // iteration then just simply write that.
+    while(j < m)
+    {
+        res[k] = arr2[j];
+        k++;
+        j++;
+    }
+
+    cout << res << " ";
+    cout << endl;
+}
+
+int main()
+{
+    int n, m;
+    cout << "Enter two array sizes" << endl;
+    cin >> n >> m;
+
+    int arr[n];
+    cout << "Enter 1st array values" << endl;
+    for(int i=0; i<n; i++)
+    {
+        cin >> arr[i];
+    }
+
+    int arr2[m];
+    cout << "Enter 2nd array values" << endl;
+    for(int j=0; j<m; j++)
+    {
+        cin >> arr[j];
+    }
+
+    Print_MergeSort(arr, arr2, n, m);
+
+}
