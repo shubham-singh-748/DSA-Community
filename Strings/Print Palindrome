@@ -1,0 +1,45 @@
+//WAP to check a string is palindrome or not.
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+	string str = "shubham";
+	string StrRev;
+
+	for(int i=str.size()-1; i >= 0; i--)
+	{
+		StrRev.push_back(str[i]);
+	}
+
+	if(str == StrRev)
+	{
+		cout << "Yes it is palindrome";
+	}
+	else
+	{
+		cout << "No it is not a palindrome";
+	}
+
+	//OR 
+	//Both have same results, but different approach.
+
+	string str = "hhjhjsdh";
+	int start = 0;
+	int end = str.size()-1;
+
+	while(start <= end)
+	{
+		if(str[start] == str[end])
+		{
+			cout << "Yes it is palindrome" << endl;
+			break;
+		}
+
+		else
+		{
+			cout << "No it is not palindrome" << endl;
+		}
+	}
+}
