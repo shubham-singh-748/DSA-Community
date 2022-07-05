@@ -1,0 +1,59 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(int argc, char const *argv[])
+{
+    set<int> s;
+    s.insert(23);
+    s.insert(45);
+    s.insert(90);
+    s.insert(111);
+    s.insert(120);
+    s.insert(975);
+    s.insert(527);
+
+    //Printitng in ordered set;
+    set<int>::iterator it = s.begin();
+    for(; it != s.end(); ++it)
+    {
+    	cout << *it << " ";
+    }
+
+    cout << endl;
+
+    //For erasing an element;
+    s.erase(527);
+    for (std::set<int>::iterator it = s.begin(); it != s.end(); ++it)
+    {
+    	cout << *it << " ";
+    }
+
+    cout << endl;
+
+    //For erasing the ITth element;
+    s.erase(s.begin(), s.find(90));
+    for (it = s.begin(); it != s.end(); ++it)
+    {
+        cout << *it << " ";   	
+    }
+
+    cout << endl;
+
+    //Printing size of an ordered set
+    cout << s.size();
+
+    cout << endl;
+
+    //Printing in reverse order;
+    set<int, greater<int>> ss;
+    ss.insert(44);
+    ss.insert(87);
+    ss.insert(34);
+    ss.insert(59);
+    ss.insert(12);
+
+    for (std::set<int>::iterator it = ss.begin(); it != ss.end(); ++it)
+    {
+    	cout << *it << " ";
+    }
+}
