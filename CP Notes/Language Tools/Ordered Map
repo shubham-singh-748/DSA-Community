@@ -1,0 +1,61 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+void printMap(map<int, string> &m)
+{
+	for(auto &it: m)
+	{
+		cout << it.first << " " << it.second << endl;
+	}
+}
+
+int main(int argc, char const *argv[])
+{
+	// std::map<int, string> m;
+	// m[1] = "abc";
+	// m[3] = "bcd";
+	// m[2] = "cfe";
+	// m[3] = "abc";
+	// m[3] = "hello";  
+
+	// m.insert({6, "bhf"});
+	// printMap(m);
+
+	// cout << endl;
+
+// 	auto it = m.find(3);
+// 	if(it == m.end())
+// 	{
+// 		cout << "No Value" << endl;
+// 	}
+// 	else
+// 	{
+// 		cout << (*it).first << " " << (*it).second << endl;
+// 	}
+	
+// 	m.clear
+
+
+	// Given N strings, print unique strings in lexicographical
+	// order with their frequency
+	// N <= 10^5
+	// |S| <= 100
+
+	std::map<string, int> m;
+	int n;
+	cin >> n;
+
+	for(int i=0; i<n; ++i)
+	{
+		string s;
+		cin >> s;
+		m[s]++;
+	}
+
+	for(auto &pr: m)
+	{
+		cout << pr.first << " " << pr.second << endl;
+	}
+
+
+}
