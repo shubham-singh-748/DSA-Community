@@ -1,0 +1,15 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(int argc, char const *argv[])
+{
+	// convert uppercase to lowercase
+	char c = 'A';
+	char newC2 =  c | ' ';
+	cout << newC2 << endl;
+
+	// convert lowercase to uppercase
+	// char c = 'a';
+	char newC = (c & '_');
+	cout << newC << endl;
+}
