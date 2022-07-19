@@ -1,0 +1,16 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(int argc, char const *argv[])
+{
+	cout << INT_MAX << endl;
+
+	// For signde integet
+	int a = (1LL << 31) - 1;
+	cout << a << endl;
+
+	// For unsigned integer
+	unsigned int b = (1LL << 32) - 1;
+	cout << b << endl;
+	return 0;
+}
