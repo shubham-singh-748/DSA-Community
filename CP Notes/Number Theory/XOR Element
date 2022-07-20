@@ -1,0 +1,28 @@
+/* Given an array of n integers. All integers are present in 
+even count except one. Find that one integer whcih has odd count
+in O(n) time complexity and O(1) space;
+N < 10^5
+a[i] < 10^5
+*/
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(int argc, char const *argv[])
+{
+	int n;
+	cin >> n;
+  
+  //Uising XOR properties to find odd element
+  
+	int findU = 0;
+	int arr[n];
+	for(int i=0; i<n; ++i)
+	{
+		cin >> arr[i];
+		findU = findU ^ arr[i];
+	}
+
+	cout << findU << endl;
+	
+}
