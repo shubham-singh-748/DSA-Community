@@ -1,0 +1,39 @@
+    #include <bits/stdc++.h>
+    using namespace std;
+     
+    int main(int argc, char const *argv[])
+    {
+        string s; cin >> s;
+        // string l, u;
+        int count_S=0, count_U=0;
+     
+        for(int i=0; i<s.length(); ++i)
+        {
+            if(s[i]>='a' && s[i]<='z')
+            {
+                // l += s[i];
+                count_S++;
+            }
+            if(s[i]>='A' && s[i]<='Z')
+            {
+                // u += s[i];
+                count_U++;
+            }
+        }
+        
+        for(int i=0; i<s.length(); ++i)
+        {
+            if(count_S > count_U || count_S == count_U)
+            {
+                s[i] = tolower(s[i]);
+            }
+            else
+            {
+                s[i] = toupper(s[i]);
+            }
+        }
+     
+        cout << s;
+     
+        return 0;
+    }
