@@ -1,0 +1,18 @@
+    #include <bits/stdc++.h>
+    using namespace std;
+     
+    int main(int argc, char const *argv[])
+    {
+    	string g, h, p; cin >> g >> h >> p;
+    	string final;
+     
+    	final = g+h;
+    	sort(final.begin(), final.end());
+     
+    	sort(p.begin(), p.end());
+     
+    	if(final==p) cout << "YES\n";
+    	else cout << "NO\n";
+     
+    	return 0;
+    }
