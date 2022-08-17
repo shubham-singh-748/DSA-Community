@@ -1,0 +1,13 @@
+#include <bits/stdc++.h>
+using namespace std;
+ 
+int main()
+{
+    string str; cin >> str;
+    char a='H', b='Q', c='9';
+ 
+    if (str.find(a)!=string::npos||str.find(b)!=string::npos||str.find(c)!=string::npos) cout <<"YES\n";
+    else cout <<"NO\n";
+ 
+    return 0;
+}
