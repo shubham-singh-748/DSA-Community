@@ -1,0 +1,18 @@
+    #include <bits/stdc++.h>
+    using namespace std;
+     
+    int main(int argc, char const *argv[])
+    {
+    	int n, k, l, c, d, p, nl, np; cin >> n >> k >> l >> c >> d >> p >> nl >> np;
+    	int ans = 0, res = 0;
+     
+    	int ftm = (k*l)/nl;
+    	int stm = c*d;
+    	ans = min(ftm, stm);
+     
+    	int ttm = p/np;
+    	res = min(ttm, ans)/n;
+    	cout << res;
+
+    	return 0;
+    }
