@@ -1,0 +1,32 @@
+Question : Devu and friendship testing
+https://www.codechef.com/submit/CFRTEST
+
+#include <bits/stdc++.h>
+using namespace std;
+typedef vector<long long> v;
+
+int main(int argc, char const *argv[])
+{
+    int tc; cin >> tc;
+    while(tc--)
+    {
+        int n; cin >> n;
+        vector<int> v;
+        map<int, int> mp;
+
+        for(int i=0; i<n; ++i)
+        {
+            int x; cin >> x;
+            mp[x]++;
+        }
+
+        int ct = 0;
+        for(auto &&i: mp)
+        {
+            if(i.first) ct++;
+        }
+        cout << ct << endl;
+    }
+    return 0;
+}
+
