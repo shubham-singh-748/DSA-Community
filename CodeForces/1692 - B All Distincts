@@ -1,0 +1,41 @@
+Question Link : https://codeforces.com/contest/1692/problem/B
+
+#include <bits/stdc++.h>
+using namespace std;
+
+#define ll long long
+
+int main(int argc, char const *argv[])
+{
+	ll tc;
+	cin >> tc;
+	while (tc--)
+	{
+		int n;
+		cin >> n;
+		vector<int> v(n);
+		map<int, int> mp;
+		for (auto &&i : v)
+		{
+			cin >> i;
+			mp[i]++;
+		}
+
+		int ans = 0;
+		for (auto &&i : mp)
+		{
+			if (i.second == i.second)
+			{
+				i.second -= 1;
+				ans += i.second;
+			}
+			else
+				ans += i.second;
+		}
+		if (ans % 2 == 0)
+			cout << n - ans << "\n";
+		else
+			cout << n - ans - 1 << "\n";
+	}
+	return 0;
+}
